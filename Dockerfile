@@ -10,6 +10,7 @@ RUN mkdir /root/chef
 RUN yum install -y initscripts
 RUN yum install -y git
 RUN yum install -y sudo
+RUN yum install -y wget
 
 RUN git clone https://github.com/srirammageswaran/chef-repo.git /root/chef
 
