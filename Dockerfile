@@ -16,7 +16,10 @@ RUN git clone https://github.com/srirammageswaran/chef-repo.git /root/chef
 RUN chef-solo -E int -o "role["appserver"]" -c /root/chef/solo.rb && service tomcat stop
 
 COPY mysql.jar /usr/share/tomcat/lib/mysql.jar 
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod 777 /entrypoint.sh
 
 EXPOSE 8080
 
-
+CMD ["/entrypoint.sh"]
