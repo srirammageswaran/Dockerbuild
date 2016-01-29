@@ -15,12 +15,6 @@ RUN git clone https://github.com/srirammageswaran/chef-repo.git /root/chef
 
 RUN chef-solo -E int -o "role["appserver"]" -c /root/chef/solo.rb && service tomcat stop
 
-RUN rm -rf /usr/share/tomcat/conf/context.xml
-
-COPY context.xml /usr/share/tomcat/conf/context.xml
-
-COPY mycompany.war /usr/share/tomcat/webapps/mycompany.war
-
 COPY mysql.jar /usr/share/tomcat/lib/mysql.jar 
 
 EXPOSE 8080
